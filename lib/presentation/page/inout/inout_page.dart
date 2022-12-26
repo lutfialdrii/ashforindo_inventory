@@ -88,7 +88,7 @@ class _InOutPageState extends State<InOutPage> {
                                 case 'Yesterday':
                                   return AppColor.primary;
                                 default:
-                                  return Colors.white.withOpacity(0.3);
+                                  return Colors.black.withOpacity(0.3);
                               }
                             },
                             labelColor: Colors.transparent,
@@ -213,8 +213,8 @@ class _InOutPageState extends State<InOutPage> {
                 barColor: (barData, index, id) => widget.type == 'IN'
                     ? AppColor.historyIn
                     : AppColor.historyOut,
-                measureLabelColor: Colors.white,
-                domainLabelColor: Colors.white,
+                measureLabelColor: Colors.black,
+                domainLabelColor: Colors.black,
                 axisLineColor: Colors.transparent,
               ),
             );
@@ -224,7 +224,7 @@ class _InOutPageState extends State<InOutPage> {
             padding: const EdgeInsets.all(16),
             child: Row(
               children: [
-                DView.textTitle('History ${widget.type}', color: Colors.white),
+                DView.textTitle('History ${widget.type}', color: Colors.black),
                 const Spacer(),
                 DView.textAction(
                   () {
@@ -245,7 +245,7 @@ class _InOutPageState extends State<InOutPage> {
               physics: const NeverScrollableScrollPhysics(),
               separatorBuilder: (context, index) => const Divider(
                 height: 1,
-                color: Colors.white54,
+                color: Colors.black54,
                 indent: 16,
                 endIndent: 16,
               ),

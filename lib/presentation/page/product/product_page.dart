@@ -63,7 +63,7 @@ class _ProductPageState extends State<ProductPage> {
           separatorBuilder: (context, index) {
             return const Divider(
               height: 1,
-              color: Colors.white60,
+              color: Colors.black54,
               indent: 16,
               endIndent: 16,
             );
@@ -99,7 +99,7 @@ class _ProductPageState extends State<ProductPage> {
                         Text(
                           product.code ?? '',
                           style: textTheme.subtitle2!.copyWith(
-                            color: Colors.white70,
+                            color: Colors.black54,
                           ),
                         ),
                         DView.spaceHeight(16),
@@ -131,7 +131,7 @@ class _ProductPageState extends State<ProductPage> {
                         child: Text(
                           product.unit ?? '',
                           style: textTheme.subtitle2!.copyWith(
-                            color: Colors.white70,
+                            color: Colors.black87,
                           ),
                         ),
                       ),

@@ -98,7 +98,7 @@ class _PickProductPageState extends State<PickProductPage> {
           separatorBuilder: (context, index) {
             return const Divider(
               height: 1,
-              color: Colors.white60,
+              color: Colors.black54,
               indent: 16,
               endIndent: 16,
             );

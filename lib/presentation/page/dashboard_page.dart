@@ -40,17 +40,73 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dashboard'),
-        actions: [
-          IconButton(
-            onPressed: () => logout(),
-            icon: const Icon(Icons.logout),
-          ),
-        ],
-      ),
+      endDrawer: DrawerApp(),
+      // appBar: AppBar(
+      //   title: const Text('Dashboard'),
+      //   actions: [
+      //     IconButton(
+      //       onPressed: () => logout(),
+      //       icon: const Icon(Icons.logout),
+      //     ),
+      //   ],
+      // ),
       body: ListView(
         children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            child: Row(
+              children: [
+                // Image.asset(
+                //   'asset/profile.png',
+                //   width: 100,
+                //   height: 100,
+                // ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Hi,',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                        ),
+                      ),
+                      Obx(() {
+                        return Text(
+                          cUser.data.name ?? '',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30,
+                          ),
+                        );
+                      })
+                    ],
+                  ),
+                ),
+                Builder(builder: (ctx) {
+                  return Material(
+                    borderRadius: BorderRadius.circular(4),
+                    elevation: 2,
+                    color: AppColor.primary,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(4),
+                      child: const Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: Icon(
+                          Icons.menu,
+                          color: AppColor.text,
+                        ),
+                      ),
+                      onTap: () {
+                        Scaffold.of(ctx).openEndDrawer();
+                      },
+                    ),
+                  );
+                }),
+              ],
+            ),
+          ),
           profileCard(textTheme),
           Padding(
             padding: const EdgeInsets.all(16),
@@ -80,6 +136,131 @@ class _DashboardPageState extends State<DashboardPage> {
               }),
             ],
           )
+        ],
+      ),
+    );
+  }
+
+  Drawer DrawerApp() {
+    return Drawer(
+      child: ListView(
+        children: [
+          DrawerHeader(
+            margin: const EdgeInsets.only(bottom: 0),
+            padding: const EdgeInsets.fromLTRB(20, 16, 16, 0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    // Image.asset(
+                    //   'asset/profile.png',
+                    //   width: 100,
+                    //   height: 100,
+                    // ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Obx(() {
+                            return Text(
+                              cUser.data.name.toString(),
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
+                            );
+                          }),
+                          Obx(() {
+                            return Text(
+                              cUser.data.level.toString(),
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontSize: 16,
+                              ),
+                            );
+                          })
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                DView.spaceHeight(8),
+                Material(
+                  color: AppColor.primary,
+                  borderRadius: BorderRadius.circular(30),
+                  child: InkWell(
+                    onTap: () => logout(),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 24,
+                        vertical: 8,
+                      ),
+                      child: Text(
+                        "Logout",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          ListTile(
+            onTap: () {},
+            leading: const Icon(Icons.home),
+            horizontalTitleGap: 0,
+            title: const Text('Dashboard'),
+            trailing: const Icon(Icons.navigate_next),
+          ),
+          ListTile(
+            onTap: () {},
+            leading: const Icon(Icons.person_add),
+            horizontalTitleGap: 0,
+            title: const Text('Karyawan'),
+            trailing: const Icon(Icons.navigate_next),
+          ),
+          const Divider(
+            height: 1,
+            thickness: 1,
+          ),
+          ListTile(
+            onTap: () {},
+            leading: const Icon(Icons.work),
+            horizontalTitleGap: 0,
+            title: const Text('Proyek'),
+            trailing: const Icon(Icons.navigate_next),
+          ),
+          const Divider(
+            height: 1,
+            thickness: 1,
+          ),
+          ListTile(
+            onTap: () {},
+            leading: const Icon(Icons.construction),
+            horizontalTitleGap: 0,
+            title: const Text('Data Barang'),
+            trailing: const Icon(Icons.navigate_next),
+          ),
+          const Divider(
+            height: 1,
+            thickness: 1,
+          ),
+          ListTile(
+            onTap: () {},
+            leading: const Icon(Icons.history),
+            horizontalTitleGap: 0,
+            title: const Text('Riwayat'),
+            trailing: const Icon(Icons.navigate_next),
+          ),
+          const Divider(
+            height: 1,
+            thickness: 1,
+          ),
         ],
       ),
     );

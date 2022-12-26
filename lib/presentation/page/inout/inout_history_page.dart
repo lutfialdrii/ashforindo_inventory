@@ -77,7 +77,7 @@ class _InOutHistoryPageState extends State<InOutHistoryPage> {
                   ),
                   const Divider(
                     height: 1,
-                    color: Colors.white54,
+                    color: Colors.black54,
                     indent: 16,
                     endIndent: 16,
                   ),
