@@ -240,7 +240,10 @@ class _DashboardPageState extends State<DashboardPage> {
             thickness: 1,
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              Get.to(() => const ProductPage())
+                  ?.then((value) => cDashboard.setProduct());
+            },
             leading: const Icon(Icons.construction),
             horizontalTitleGap: 0,
             title: const Text('Data Barang'),

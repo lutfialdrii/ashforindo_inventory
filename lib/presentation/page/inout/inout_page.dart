@@ -164,7 +164,7 @@ class _InOutPageState extends State<InOutPage> {
                                 .textTheme
                                 .bodyMedium!
                                 .copyWith(
-                                  color: Colors.white70,
+                                  color: Colors.black87,
                                   fontWeight: FontWeight.w300,
                                 ),
                           );
@@ -175,7 +175,7 @@ class _InOutPageState extends State<InOutPage> {
                             'Rp ${AppFormat.currency(cInOut.different.toString())}',
                             style: Theme.of(context)
                                 .textTheme
-                                .titleMedium!
+                                .titleSmall!
                                 .copyWith(
                                   color: widget.type == 'IN'
                                       ? AppColor.historyIn
@@ -215,7 +215,7 @@ class _InOutPageState extends State<InOutPage> {
                     : AppColor.historyOut,
                 measureLabelColor: Colors.black,
                 domainLabelColor: Colors.black,
-                axisLineColor: Colors.transparent,
+                axisLineColor: Colors.black,
               ),
             );
           }),
@@ -272,8 +272,8 @@ class _InOutPageState extends State<InOutPage> {
                         style: Theme.of(context).textTheme.subtitle2,
                       ),
                       Text(
-                        'Rp ${AppFormat.currency(history.totalPrice ?? '0')}',
-                        style: Theme.of(context).textTheme.titleLarge,
+                        'Rp ${history.totalPrice ?? '0'}',
+                        // style: Theme.of(context).textTheme.titleMedium,
                       ),
                     ],
                   ),
