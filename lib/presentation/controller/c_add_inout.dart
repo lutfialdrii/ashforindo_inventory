@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:d_info/d_info.dart';
 import 'package:d_method/d_method.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import '../../data/source/source_inout.dart';
@@ -9,6 +10,7 @@ import '../../data/source/source_inout.dart';
 class CAddInOut extends GetxController {
   final RxDouble _totalPrice = 0.0.obs;
   double get totalPrice => _totalPrice.value;
+  final cDetailHistory = TextEditingController();
 
   final RxList<Map> _list = <Map>[].obs;
   List<Map> get list => _list.value;
@@ -33,7 +35,8 @@ class CAddInOut extends GetxController {
     bool success = await SourceInOut.add(
       listProduct: jsonEncode(listCast),
       type: type,
-      totalPrice: totalPrice.toStringAsFixed(2),
+      totalPrice: totalPrice.toStringAsFixed(2), 
+      detailHistory: cDetailHistory.text,
     );
     if (success) {
       DMethod.printTitle('addinout', 'success');

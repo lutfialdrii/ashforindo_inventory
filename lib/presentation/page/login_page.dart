@@ -109,6 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                         style:
                             Theme.of(context).textTheme.displaySmall!.copyWith(
                                   color: AppColor.text,
+                                  fontWeight: FontWeight.w700
                                 ),
                       ),
                       DView.spaceHeight(8),

@@ -1,6 +1,7 @@
 class History {
   History({
     this.idHistory,
+    this.detailHistory,
     this.listProduct,
     this.totalPrice,
     this.type,
@@ -9,6 +10,7 @@ class History {
   });
 
   int? idHistory;
+  String? detailHistory;
   String? listProduct;
   String? totalPrice;
   String? type;
@@ -19,6 +21,7 @@ class History {
         idHistory: json["id_history"] != null
             ? int.parse(json["id_history"].toString())
             : null,
+        detailHistory: json["detail_history"],
         listProduct: json["list_product"],
         totalPrice: json["total_price"],
         type: json["type"],
@@ -28,6 +31,7 @@ class History {
 
   Map<String, dynamic> toJson() => {
         "id_history ": idHistory,
+        "detail_history": detailHistory,
         "list_product": listProduct,
         "total_price": totalPrice,
         "type": type,

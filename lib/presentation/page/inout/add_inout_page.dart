@@ -1,4 +1,5 @@
 import 'package:d_info/d_info.dart';
+import 'package:d_input/d_input.dart';
 import 'package:d_view/d_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -46,6 +47,14 @@ class _AddInOutPageState extends State<AddInOutPage> {
       ),
       body: ListView(
         children: [
+          DInput(
+            controller: cAddInOut.cDetailHistory,
+            hint: 'Order Bulan ini',
+            title: 'Detail Project',
+            validator: (value) => value == '' ? "Don't Empty" : null,
+            isRequired: true,
+          ),
+          DView.spaceHeight(),
           Padding(
             padding: const EdgeInsets.all(16),
             child: ElevatedButton(

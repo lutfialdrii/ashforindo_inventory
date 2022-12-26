@@ -103,7 +103,7 @@ class _AddUpdateProductPageState extends State<AddUpdateProductPage> {
             DView.spaceHeight(),
             DInput(
               controller: controllerName,
-              hint: 'Your Name',
+              hint: 'Amplas',
               title: 'Name',
               validator: (value) => value == '' ? "Don't Empty" : null,
               isRequired: true,

@@ -40,11 +40,13 @@ class SourceInOut {
   }
 
   static Future<bool> add(
-      {required String listProduct,
+      {required String detailHistory,
+      required String listProduct,
       required String type,
       required String totalPrice}) async {
     String url = '${Api.inout}/${Api.add}';
     String? responseBody = await AppRequest.post(url, {
+      'detail_history': detailHistory,
       'list_product': listProduct,
       'type': type,
       'total_price': totalPrice,

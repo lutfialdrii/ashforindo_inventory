@@ -128,7 +128,7 @@ class _DashboardPageState extends State<DashboardPage> {
               menuIn(textTheme),
               menuOut(textTheme),
               Obx(() {
-                if (cUser.data.level == 'Admin') {
+                if (cUser.data.level == 'Supervisor') {
                   return menuEmployee(textTheme);
                 } else {
                   return const SizedBox();

@@ -267,9 +267,18 @@ class _InOutPageState extends State<InOutPage> {
                   title: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        AppFormat.date(history.createdAt!),
-                        style: Theme.of(context).textTheme.subtitle2,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            history.detailHistory.toString(),
+                            style: Theme.of(context).textTheme.subtitle2!.copyWith(fontWeight: FontWeight.w700),
+                          ),
+                          Text(
+                            AppFormat.date(history.createdAt!),
+                            style: Theme.of(context).textTheme.subtitle2!.copyWith(fontWeight: FontWeight.w400),
+                          ),
+                        ],
                       ),
                       Text(
                         'Rp ${history.totalPrice ?? '0'}',
