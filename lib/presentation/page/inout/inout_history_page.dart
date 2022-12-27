@@ -64,13 +64,28 @@ class _InOutHistoryPageState extends State<InOutHistoryPage> {
                     title: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          AppFormat.date(history.createdAt!),
-                          style: Theme.of(context).textTheme.subtitle2,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              history.detailHistory.toString(),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .subtitle2!
+                                  .copyWith(fontWeight: FontWeight.w700),
+                            ),
+                            Text(
+                              AppFormat.date(history.createdAt!),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .subtitle2!
+                                  .copyWith(fontWeight: FontWeight.w400),
+                            ),
+                          ],
                         ),
                         Text(
                           'Rp ${AppFormat.currency(history.totalPrice ?? '0')}',
-                          style: Theme.of(context).textTheme.titleLarge,
+                          style: Theme.of(context).textTheme.titleSmall,
                         ),
                       ],
                     ),

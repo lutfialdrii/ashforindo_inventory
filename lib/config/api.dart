@@ -1,5 +1,5 @@
 class Api {
-  static const _baseUrl = 'http://10.126.169.55/api_ashforindo';
+  static const _baseUrl = 'https://ashforindo.000webhostapp.com/';
   static const user = '$_baseUrl/user';
   static const product = '$_baseUrl/product';
   static const history = '$_baseUrl/history';

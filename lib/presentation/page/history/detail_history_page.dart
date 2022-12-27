@@ -73,7 +73,7 @@ class _DetailHistoryPageState extends State<DetailHistoryPage> {
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
         onPressed: () {
-          if (cUser.data.level == 'Admin') {
+          if (cUser.data.level == 'Supervisor') {
             delete();
           } else {
             DInfo.toastError('You are have no access');

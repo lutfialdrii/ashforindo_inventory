@@ -111,7 +111,7 @@ class _HistoryPageState extends State<HistoryPage> {
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
         onPressed: () {
-          if (cuser.data.level == 'Admin') {
+          if (cuser.data.level == 'Supervisor') {
             showInputDate();
           } else {
             DInfo.toastError('You are have no access');

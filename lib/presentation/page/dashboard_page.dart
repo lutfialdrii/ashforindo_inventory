@@ -211,28 +211,16 @@ class _DashboardPageState extends State<DashboardPage> {
             ),
           ),
           ListTile(
-            onTap: () {},
-            leading: const Icon(Icons.home),
+            onTap: () {
+              Get.to(() => const ProductPage())
+                  ?.then((value) => cDashboard.setProduct());
+            },
+            leading: const Icon(
+              Icons.construction,
+              color: AppColor.primary,
+            ),
             horizontalTitleGap: 0,
-            title: const Text('Dashboard'),
-            trailing: const Icon(Icons.navigate_next),
-          ),
-          ListTile(
-            onTap: () {},
-            leading: const Icon(Icons.person_add),
-            horizontalTitleGap: 0,
-            title: const Text('Karyawan'),
-            trailing: const Icon(Icons.navigate_next),
-          ),
-          const Divider(
-            height: 1,
-            thickness: 1,
-          ),
-          ListTile(
-            onTap: () {},
-            leading: const Icon(Icons.work),
-            horizontalTitleGap: 0,
-            title: const Text('Proyek'),
+            title: const Text('Product'),
             trailing: const Icon(Icons.navigate_next),
           ),
           const Divider(
@@ -241,12 +229,14 @@ class _DashboardPageState extends State<DashboardPage> {
           ),
           ListTile(
             onTap: () {
-              Get.to(() => const ProductPage())
-                  ?.then((value) => cDashboard.setProduct());
+              Get.to(() => HistoryPage());
             },
-            leading: const Icon(Icons.construction),
+            leading: const Icon(
+              Icons.history,
+              color: AppColor.primary,
+            ),
             horizontalTitleGap: 0,
-            title: const Text('Data Barang'),
+            title: const Text('History'),
             trailing: const Icon(Icons.navigate_next),
           ),
           const Divider(
@@ -254,16 +244,55 @@ class _DashboardPageState extends State<DashboardPage> {
             thickness: 1,
           ),
           ListTile(
-            onTap: () {},
-            leading: const Icon(Icons.history),
+            onTap: () {
+              Get.to(() => InOutPage(type: 'IN'));
+            },
+            leading: const Icon(
+              Icons.south_west,
+              color: AppColor.primary,
+            ),
             horizontalTitleGap: 0,
-            title: const Text('Riwayat'),
+            title: const Text('IN'),
             trailing: const Icon(Icons.navigate_next),
           ),
           const Divider(
             height: 1,
             thickness: 1,
           ),
+          ListTile(
+            onTap: () {
+              Get.to(() => InOutPage(type: 'OUT'));
+            },
+            leading: const Icon(
+              Icons.north_east,
+              color: AppColor.primary,
+            ),
+            horizontalTitleGap: 0,
+            title: const Text('OUT'),
+            trailing: const Icon(Icons.navigate_next),
+          ),
+          const Divider(
+            height: 1,
+            thickness: 1,
+          ),
+          Obx(() {
+            if (cUser.data.level == 'Supervisor') {
+              return ListTile(
+                onTap: () {
+                  Get.to(() => EmployeePage());
+                },
+                leading: const Icon(
+                  Icons.person_add,
+                  color: AppColor.primary,
+                ),
+                horizontalTitleGap: 0,
+                title: const Text('Employee'),
+                trailing: const Icon(Icons.navigate_next),
+              );
+            } else {
+              return const SizedBox();
+            }
+          }),
         ],
       ),
     );
